@@ -87,7 +87,7 @@ def configure_library(library_dir, env_options=None, options=[]):
 #         pysam.
 # external: use shared libhts.so compiled outside of
 #           pysam
-HTSLIB_MODE = os.environ.get("HTSLIB_MODE", "external")
+HTSLIB_MODE = os.environ.get("HTSLIB_MODE", "separate")
 HTSLIB_LIBRARY_DIR = os.environ.get("HTSLIB_LIBRARY_DIR", None)
 HTSLIB_INCLUDE_DIR = os.environ.get("HTSLIB_INCLUDE_DIR", None)
 HTSLIB_CONFIGURE_OPTIONS = os.environ.get("HTSLIB_CONFIGURE_OPTIONS", None)
@@ -101,7 +101,7 @@ try:
     from cy_build import CyExtension as Extension, cy_build_ext as build_ext
     source_pattern = "pysam/c%s.pyx"
     cmdclass = {'build_ext': build_ext}
-    #HTSLIB_MODE = "shared"
+    HTSLIB_MODE = "shared"
 except ImportError:
     # no Cython available - use existing C code
     cmdclass = {}
