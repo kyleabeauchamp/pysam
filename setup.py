@@ -87,7 +87,7 @@ def configure_library(library_dir, env_options=None, options=[]):
 #         pysam.
 # external: use shared libhts.so compiled outside of
 #           pysam
-HTSLIB_MODE = "shared"
+HTSLIB_MODE = "external"
 HTSLIB_LIBRARY_DIR = os.environ.get("HTSLIB_LIBRARY_DIR", None)
 HTSLIB_INCLUDE_DIR = os.environ.get("HTSLIB_INCLUDE_DIR", None)
 HTSLIB_CONFIGURE_OPTIONS = os.environ.get("HTSLIB_CONFIGURE_OPTIONS", None)
